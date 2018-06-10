@@ -37,8 +37,6 @@ public class MainPaneController {
     @FXML
     private MenuItem englishLangMenuItem;
     @FXML
-    private Button openButton;
-    @FXML
     private MenuItem polishLangMenuItem;
     @FXML
     private ToggleButton lineDrawButton;
@@ -111,6 +109,8 @@ public class MainPaneController {
     private void loadDefaultProperty() {
         PropertyService propertyService = new PropertyService();
         properties = propertyService.loadFromFile("src/main/resources/lang.properties");
+        polishLangMenuItem.setVisible(true);
+        englishLangMenuItem.setVisible(false);
         updateLabels();
     }
 
@@ -118,6 +118,11 @@ public class MainPaneController {
         fileMenu.setText(properties.getProperty("file-menu", "File"));
         languageMenu.setText(properties.getProperty("language-menu", "Language"));
         closeAppMenuItem.setText(properties.getProperty("close-menu", "Close"));
+        loadImageMenuItem.setText(properties.getProperty("load-image", "Open File"));
+        lineDrawButton.setText(properties.getProperty("lineDraw", "Draw line"));
+        rectangleDrawButton.setText(properties.getProperty("rectangleDraw", "Draw rectangle"));
+        undoButton.setText(properties.getProperty("undo", "Undo"));
+        redoButton.setText(properties.getProperty("redo", "Redo"));
     }
 
     private void initMenu() {
@@ -162,6 +167,8 @@ public class MainPaneController {
         englishLangMenuItem.setOnAction(e -> {
             PropertyService propertyService = new PropertyService();
             properties = propertyService.loadFromFile("src/main/resources/lang_en.properties");
+            polishLangMenuItem.setVisible(true);
+            englishLangMenuItem.setVisible(false);
             updateLabels();
         });
     }
@@ -170,12 +177,13 @@ public class MainPaneController {
         polishLangMenuItem.setOnAction(e -> {
             PropertyService propertyService = new PropertyService();
             properties = propertyService.loadFromFile("src/main/resources/lang_pl.properties");
+            polishLangMenuItem.setVisible(false);
+            englishLangMenuItem.setVisible(true);
             updateLabels();
         });
     }
 
     private void initToolbox() {
-        openButton.setOnAction(e -> setImageViewFromFile());
         undoButton.setOnAction(e -> {
             canvas.undo();
             updateImageView();
@@ -187,7 +195,7 @@ public class MainPaneController {
         lineDrawButton.setOnAction(e -> rectangleDrawButton.setSelected(false));
         rectangleDrawButton.setOnAction(e -> lineDrawButton.setSelected(false));
         colorPicker.setValue(Color.RED);
-        drawSizeChoiceBox.getItems().addAll(1, 2, 3, 5, 8, 12, 18, 26);
+        drawSizeChoiceBox.getItems().addAll(1, 2, 3, 5, 7, 9, 12, 15, 18, 24);
         drawSizeChoiceBox.setValue(2);
     }
 

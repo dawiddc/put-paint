@@ -19,6 +19,7 @@ public class Main extends javafx.application.Application {
     public void start(Stage primaryStage) throws Exception {
         URL url = new File("src/main/java/org/dawiddc/paint/view/MainPane.fxml").toURI().toURL();
         Parent root = FXMLLoader.load(url);
+
         primaryStage.setTitle("PUT Paint");
         primaryStage.setScene(new Scene(root, 1366.0, 768.0));
         primaryStage.getIcons().add(new Image("assets/logo.png"));
