@@ -49,6 +49,7 @@
                                         <ChoiceBox fx:id="drawSizeChoiceBox" prefWidth="20.0"/>
                                     </children>
                                 </HBox>
+                                <Separator orientation="VERTICAL"/>
                                 <HBox fx:id="pluginsToolBox" alignment="CENTER" spacing="5.0"/>
                             </children>
                         </HBox>
