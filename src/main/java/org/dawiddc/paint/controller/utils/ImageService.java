@@ -1,7 +1,6 @@
 package org.dawiddc.paint.controller.utils;
 
 import javafx.scene.image.Image;
-import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.MatOfByte;
 import org.opencv.imgcodecs.Imgcodecs;
@@ -10,9 +9,9 @@ import java.io.ByteArrayInputStream;
 
 public class ImageService {
 
-
     public ImageService() {
-        System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+        nu.pattern.OpenCV.loadShared();
+//        System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
     }
 
     public Mat loadMatrix(String filePath) {

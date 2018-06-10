@@ -72,7 +72,7 @@ public class MainPaneController {
         initMenu();
         initToolbox();
         initImageView();
-        setImageViewFromFile("sampleAssets\\empty.png");
+        setImageViewFromFile("src/main/resources/sampleImages/blank.png");
     }
 
     private void loadPlugins() {
@@ -110,7 +110,7 @@ public class MainPaneController {
 
     private void loadDefaultProperty() {
         PropertyService propertyService = new PropertyService();
-        properties = propertyService.loadFromFile("properties\\default.properties");
+        properties = propertyService.loadFromFile("src/main/resources/lang.properties");
         updateLabels();
     }
 
@@ -161,7 +161,7 @@ public class MainPaneController {
     private void initEnglishMenuItem() {
         englishLangMenuItem.setOnAction(e -> {
             PropertyService propertyService = new PropertyService();
-            properties = propertyService.loadFromFile("properties\\english.properties");
+            properties = propertyService.loadFromFile("src/main/resources/lang_en.properties");
             updateLabels();
         });
     }
@@ -169,7 +169,7 @@ public class MainPaneController {
     private void initPolishMenuItem() {
         polishLangMenuItem.setOnAction(e -> {
             PropertyService propertyService = new PropertyService();
-            properties = propertyService.loadFromFile("properties\\polish.properties");
+            properties = propertyService.loadFromFile("src/main/resources/lang_pl.properties");
             updateLabels();
         });
     }
