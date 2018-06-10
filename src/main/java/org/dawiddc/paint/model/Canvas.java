@@ -22,22 +22,20 @@ public class Canvas {
         return actualImage;
     }
 
-    public void setActualImage(Mat actualImage) {
+    private void setActualImage(Mat actualImage) {
         this.actualImage = actualImage;
     }
 
-    public void addToHistory(Mat matrix) {
+    private void addToHistory(Mat matrix) {
         canvasHistory.addToHistory(matrix);
     }
 
-    public Mat undo() {
+    public void undo() {
         actualImage = canvasHistory.getPrevious();
-        return actualImage;
     }
 
-    public Mat redo() {
+    public void redo() {
         actualImage = canvasHistory.getNext();
-        return actualImage;
     }
 
     public boolean isHistoryEmpty() {

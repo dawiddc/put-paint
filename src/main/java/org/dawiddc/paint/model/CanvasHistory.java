@@ -9,7 +9,7 @@ import java.util.List;
 public class CanvasHistory {
 
 
-    int iterator;
+    private int iterator;
     private LinkedList<Mat> history;
 
     public CanvasHistory() {
@@ -19,11 +19,11 @@ public class CanvasHistory {
         setIterator(-1);
     }
 
-    public int getIterator() {
+    private int getIterator() {
         return iterator;
     }
 
-    public void setIterator(int iterator) {
+    private void setIterator(int iterator) {
         this.iterator = iterator;
     }
 

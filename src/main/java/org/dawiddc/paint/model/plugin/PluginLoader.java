@@ -8,12 +8,13 @@ import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
 public class PluginLoader {
 
-    public static Class<?> loadClass(File pluginsDirectory, String configFileName) throws IOException, ClassNotFoundException {
+    private static Class<?> loadClass(File pluginsDirectory, String configFileName) throws IOException, ClassNotFoundException {
         final JarFile jarFile = new JarFile(pluginsDirectory);
         final JarEntry jarEntry = jarFile.getJarEntry(configFileName);
         final BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(jarFile.getInputStream(jarEntry)));
@@ -38,7 +39,7 @@ public class PluginLoader {
 
     private static Class<?>[] loadPlugins(File dir, String config) throws IOException, ClassNotFoundException {
         final File[] files = dir.listFiles();
-        final Class<?>[] classes = new Class<?>[files.length];
+        final Class<?>[] classes = new Class<?>[Objects.requireNonNull(files).length];
         for (int i = 0; i < files.length; i++) {
             classes[i] = loadClass(files[i], config);
         }

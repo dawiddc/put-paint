@@ -11,13 +11,10 @@ public class ImageService {
 
     public ImageService() {
         nu.pattern.OpenCV.loadShared();
-//        System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
     }
 
     public Mat loadMatrix(String filePath) {
-        Imgcodecs imageCodecs = new Imgcodecs();
-        Mat matrix = Imgcodecs.imread(filePath);
-        return matrix;
+        return Imgcodecs.imread(filePath);
     }
 
     public Image convertToImage(Mat matrix) {
